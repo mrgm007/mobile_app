@@ -1,0 +1,129 @@
+
+<PongBallSelf>:
+    size: 25, 25
+    canvas:
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+
+<PongBall>:
+    size_hint: None,None
+    size: 25, 25
+    canvas:
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+
+
+<PongPaddle>:
+    size: 100, 10
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: 80, 10
+        Ellipse:
+            pos: self.x + 75, self.y
+            size: 10, 10
+        Ellipse:
+            pos: self.x - 5, self.y
+            size: 10, 10
+<PongBorder>:
+    size: self.width, self.height
+    pos: self.x, self.y
+    canvas:
+        Rectangle:
+            source: 'squares.png'
+            pos: self.x, self.y
+            size: self.width, self.height
+        Rectangle:
+            pos: self.center_x - self.width/2, 0
+            size: 10, self.height
+        Rectangle:
+            pos: self.width - 10, 0
+            size: 10, self.height
+        Rectangle:
+            pos: 0, self.center_y - self.height/2
+            size: self.width, 10
+        Rectangle:
+            pos: 0, self.height - 10
+            size: self.width, 10
+        Rectangle:
+            pos: 0, self.height / 2
+            size: self.width, 5
+        Ellipse:
+            pos: self.width - 30, self.height/2 - 20
+            size: 15, 15
+        Ellipse:
+            pos: self.width - 30, self.height/2 - 40
+            size: 15, 15
+        Ellipse:
+            pos: self.width - 30, self.height/2 - 60
+            size: 15, 15
+        Ellipse:
+            pos: self.width - 30, self.height/2 + 10
+            size: 15, 15
+        Ellipse:
+            pos: self.width - 30, self.height/2 + 30
+            size: 15, 15
+        Ellipse:
+            pos: self.width - 30, self.height/2 + 50
+            size: 15, 15
+<Menu>:
+    canvas:
+        Rectangle:
+            pos: self.x, self.y
+            size: self.width, self.height
+
+<PongGame>:
+    ball: pong_ball
+    player1: player_bottom
+    player2: player_top
+
+    PongBorder:
+        id: pong_border
+        pos: root.x, root.y
+        size: root.width, root.height
+    PongBallSelf:
+        id: pong_ball_self
+        center: root.ball.temp1_x, root.ball.temp1_y
+    PongBallSelf:
+        id: pong_ball_self1
+        center: root.ball.temp2_x, root.ball.temp2_y
+    PongBallSelf:
+        id: pong_ball_self2
+        center: root.ball.temp3_x, root.ball.temp3_y
+    PongBallSelf:
+        id: pong_ball_self3
+        center: root.ball.temp4_x, root.ball.temp4_y
+        size: 25, 25
+    PongBallSelf:
+        id: pong_ball_self4
+        center: root.ball.temp5_x, root.ball.temp5_y
+        size: 20, 20
+    PongBallSelf:
+        id: pong_ball_self5
+        center: root.ball.temp6_x, root.ball.temp6_y
+        size: 15, 15
+    PongBallSelf:
+        id: pong_ball_self6
+        center: root.ball.temp7_x, root.ball.temp7_y
+        size: 10, 10
+    PongBall:
+        id: pong_ball
+        center: self.parent.center
+
+    PongPaddle:
+        id: player_bottom
+        center_x: root.center_x
+        y: root.y + 15
+
+    PongPaddle:
+        id: player_top
+        center_x: root.center_x
+        y: root.height - self.height - 15
+    Menu:
+        id: menu
+        pos: root.x, root.y
+        size: root.width - root.MenuWidth, root.height - root.MenuHeight
